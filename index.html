@@ -22,17 +22,57 @@
     <div class="right-panel">
         <div class="top-section">
             <p>This is not a real online service! You know you need something like this in your life to help you realize your deepest dreams.</p>
+            <p>Sign up <em>now</em> to get started</p>
             <br>
             <p>You <em>know</em> you want to.</p>
         </div>
-        <form action="">
+        <form action="#" method="post">
             <div class="field-section">
-                <legend>Let's do this!</legend>
+                <legend class="legend">Let's do this!</legend>
+
+                <div class="row">
+                    <div class="form-group">
+                        <label for="first_name">First Name</label>
+                        <input type="text" id="first_name" name="first_name"
+                               required >
+                    </div>
+
+                    <div class="form-group">
+                        <label for="last_name">Last Name</label>
+                        <input type="text" id="last_name" name="last_name">
+                    </div>
+                 </div>
+
+                <div class="row">
+                    <div class="form-group">
+                        <label for="email">Email</label>
+                        <input type="email" id="email" name="email">
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="phone">Phone</label>
+                        <input type="text" id="phone" name="phone"
+                               placeholder="000-0000-0000">
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="form-group">
+                        <label for="password">Password</label>
+                        <input type="password" id="password" name="password">
+                    </div>
+
+                    <div class="form-group">
+                        <label for="confirm-password">Confirm Password</label>
+                        <input type="password" id="confirm-password" name="confirm-password">
+                    </div>
+                </div>
 
             </div>
             <div class="button-section">
                 <button type="submit">Create Account</button>
-
+                <br><br>
+                <p>Already have an account? <a href="#">Login</a></p>
             </div>
         </form>
 

@@ -47,33 +47,43 @@ table {
 	border-spacing: 0;
 }
 
-/* font */
+/* custom properties */
+
+:root {
+    --color-gray: #e5e7eb;
+    --color-green: #596D48;
+    --color-main-text: #3f4141;
+}
+
+/* universal font styling*/
 
 @font-face {
     font-family: "Norse-Bold";
     src: url("Norse-Bold.otf");
 }
 
-p, form {
-    font-family: 'Courier New', Courier, monospace;
+p {
+    font-family: Arial, 'Courier New', Courier, monospace;
+    color: var(--color-main-text);
 }
 
-.logo p {
-    font-size: 80px;
-    font-family: "Norse-Bold", Verdana, Geneva, Tahoma, sans-serif;
+em {
+    font-style: italic;
 }
 
-.top-section {
-    font-size: 1.2rem;
+a {
+    text-decoration: none;
+    color: var(--color-green);
     font-weight: bold;
 }
 
 /* page layout */
 
 body {
+    background-color: black;
     display: flex;
     height: 100vh;
-    width: 70%;
+    width: 75%;
     margin: auto;
 }
 
@@ -104,6 +114,11 @@ body {
     top: 30%;
 }
 
+.logo p {
+    font-size: 80px;
+    font-family: "Norse-Bold", Verdana, Geneva, Tahoma, sans-serif;
+}
+
 .logo img {
     height: 80%;
 }
@@ -114,9 +129,21 @@ body {
     padding-bottom: 5px;
 }
 
+button {
+    color: white;
+    font-size: 1.2rem;
+    background-color: var(--color-green);
+    padding: 0.8rem 3rem;
+    border-radius: 5px;
+    border: 1px solid var(--color-green);
+    box-shadow: rgba(100, 100, 111, 0.2) 0px 5px 10px 3px;
+
+}
+
 /*right panel*/
 
 .right-panel {
+    background-color: white;
     width: 60%;
     display: flex;
     flex-direction: column;
@@ -124,6 +151,69 @@ body {
 }
 
 .top-section, .field-section, .button-section {
-    height: 150px;
     padding: 30px;
 }
+
+.top-section {
+    font-size: 1.2rem;
+    font-weight: bold;
+    line-height: 1.7rem;
+    font-size: 1.5rem;
+}
+
+.field-section {
+    box-shadow: rgba(100, 100, 111, 0.2) 0px 10px 10px -3px;
+}
+
+/* form */
+
+legend {
+    margin-bottom: 1.2rem;
+    font-family: Arial, 'Courier New', Courier, monospace;
+    color: var(--color-main-text);
+    font-size: 1.5rem;
+    font-weight: bold;  
+}
+
+.row {
+    display: flex;
+    gap: 3rem;
+}
+
+label {
+    display: block;
+    margin: 0.2rem 0;
+    font-family: Arial, 'Courier New', Courier, monospace;
+    color:rgba(0, 0, 0, 0.8);
+    text-transform: uppercase;
+    font-size: 0.8rem;
+}
+
+input {
+    margin-bottom: 1rem;
+    width: 15rem;
+    height: 1.8rem;
+    border-radius: 5px;
+    border: 1px solid var(--color-gray);
+    transition: border 0.25s;
+}
+
+input:focus {
+    outline: none;
+    border: 1px solid #007bff;
+    box-shadow: #007bff 3px 4px 5px -4px;
+}
+
+input:not(:focus):invalid {
+    border: 1px solid #d50000;
+}
+
+input:not(:focus):invalid::after {
+    content: 'Please fix the error.';
+}
+
+
+
+
+
+
