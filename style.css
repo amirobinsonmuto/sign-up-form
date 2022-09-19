@@ -182,15 +182,24 @@ legend {
 
 label {
     display: block;
-    margin: 0.2rem 0;
+    margin: 1rem 0 0.5em 0;
     font-family: Arial, 'Courier New', Courier, monospace;
     color:rgba(0, 0, 0, 0.8);
     text-transform: uppercase;
     font-size: 0.8rem;
+    line-height: 1.2rem;
+}
+
+.password-instruction {
+    display: block;
+    margin: 1rem 0 0.5em 0;
+    font-family: Arial, 'Courier New', Courier, monospace;
+    color:rgba(0, 0, 0, 0.8);
+    font-size: 0.8rem;
+    line-height: 1.2rem;
 }
 
 input {
-    margin-bottom: 1rem;
     width: 15rem;
     height: 1.8rem;
     border-radius: 5px;
@@ -198,20 +207,35 @@ input {
     transition: border 0.25s;
 }
 
-input:focus {
+input:not(:focus):not(:placeholder-shown):valid {
     outline: none;
     border: 1px solid #007bff;
     box-shadow: #007bff 3px 4px 5px -4px;
 }
 
-input:not(:focus):invalid {
+input:not(:focus):not(:placeholder-shown):invalid {
+    outline: none;
     border: 1px solid #d50000;
+    box-shadow: #d50000 3px 4px 5px -4px;
 }
 
-input:not(:focus):invalid::after {
-    content: 'Please fix the error.';
+[required]::after {
+    content:" *";
+    color: #d50000;
 }
 
+.error-message, #pass-error-message {
+    margin-top: 0.4rem;
+    display: none;
+    color: #d50000;
+    font-size: 0.8rem;
+}
+
+input:not(:focus):not(:placeholder-shown):invalid ~ .error-message {
+    display: block; 
+  }
+
+  
 
 
 

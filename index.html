@@ -32,50 +32,85 @@
 
                 <div class="row">
                     <div class="form-group">
-                        <label for="first_name">First Name</label>
+                        <label for="first_name" required >First Name</label>
                         <input type="text" id="first_name" name="first_name"
-                               required >
+                               required placeholder=" ">
                     </div>
 
                     <div class="form-group">
-                        <label for="last_name">Last Name</label>
-                        <input type="text" id="last_name" name="last_name">
+                        <label for="last_name" required >Last Name</label>
+                        <input type="text" id="last_name" name="last_name"
+                               required placeholder=" ">
                     </div>
                  </div>
 
                 <div class="row">
                     <div class="form-group">
-                        <label for="email">Email</label>
-                        <input type="email" id="email" name="email">
+                        <label for="email" required >Email</label>
+                        <input type="email" id="email" name="email"
+                               data-error="Make sure you email is correct."
+                               required placeholder="aaa@aaa.com">
+                        <p class="error-message">Fix your email.</p>
                     </div>
                     
                     <div class="form-group">
-                        <label for="phone">Phone</label>
-                        <input type="text" id="phone" name="phone"
-                               placeholder="000-0000-0000">
+                        <label for="phone" required >Phone</label>
+                        <input type="tel" id="phone" name="phone"
+                               placeholder="000-000-0000" 
+                               pattern="[0-9]{3}-[0-9]{3}-[0-9]{4}"
+                               required >
+                        <p class="error-message">Fix your phone.</p>
                     </div>
                 </div>
 
                 <div class="row">
                     <div class="form-group">
-                        <label for="password">Password</label>
-                        <input type="password" id="password" name="password">
+                        <label for="password" required >Password</label>
+                        <input type="password" id="password" name="password"
+                               required placeholder=" "
+                               pattern="^(?=.*[A-Za-z])(?=.*\d)(?=.*[@$!%*#?&])[A-Za-z\d@$!%*#?&]{8,}$">
+                        <p class="error-message">
+                            fix your password.
+                        </p>
                     </div>
 
                     <div class="form-group">
-                        <label for="confirm-password">Confirm Password</label>
-                        <input type="password" id="confirm-password" name="confirm-password">
+                        <label for="confirm-password" required >Confirm Password</label>
+                        <input type="password" id="confirm-password" 
+                               name="confirm-password"
+                               required placeholder=" ">
+                        <p id="pass-error-message">Passwords don't match.</p>
                     </div>
                 </div>
 
+                <p class="password-instruction">Password needs to be minimum eight characters, at least one letter, one number and one special character</p>
+
             </div>
             <div class="button-section">
-                <button type="submit">Create Account</button>
+                <button type="submit" id="btn">Create Account</button>
                 <br><br>
                 <p>Already have an account? <a href="#">Login</a></p>
             </div>
         </form>
 
     </div>
+
+    <script>
+
+        const form = document.querySelector('form');
+        form.addEventListener('submit', e => {
+        const pass1 = document.querySelector('#password');
+        const pass2 = document.querySelector('#confirm-password');
+        const errorMsg = document.querySelector('#pass-error-message');
+        if (pass1 !== pass2) {
+            e.preventDefault();
+            errorMsg.style.display = 'block';
+        }
+        });
+        
+
+    </script>
+
+
 </body>
 </html>
